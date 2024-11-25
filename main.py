@@ -19,11 +19,11 @@ def Send():
     else:
         messagebox.showerror(message="You did not answer the survey!")
     # Setting the if else stament for password colum
-    if( password_entry.get):
-        password_entry.get =(1,2,3,)
+    if password_entry.get:
+        password_entry.get= numbers.Number
         messagebox.showinfo(message=":)")
     else:
-        password_entry.get = "STR"
+        password_entry.get = str="STR"
         messagebox.showerror(message="You do not write a number for password")
 
 
