@@ -1,5 +1,4 @@
 # Setting the models
-import numbers
 import tkinter
 from tkinter import messagebox
 
@@ -18,13 +17,18 @@ def Send():
         messagebox.showinfo(message="Thank you for answering the survey")
     else:
         messagebox.showerror(message="You did not answer the survey!")
-    # Setting the if else stament for password colum
-    if password_entry.get:
-        password_entry.get= numbers.Number
+
+    try:
+        user_input = password_entry.get()
+        # Try to convert the input to a number (float or int)
+        float(user_input)
+        # Shows a message
         messagebox.showinfo(message=":)")
-    else:
-        password_entry.get = str="STR"
-        messagebox.showerror(message="You do not write a number for password")
+
+    # If it is not a number which a user puts it will go to show error
+    except ValueError:
+        # If the input is str, show an error message
+        messagebox.showerror(message="You did not write a number for the password!. :(")
 
 
 # Setting the title
