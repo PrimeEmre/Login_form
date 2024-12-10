@@ -1,5 +1,5 @@
 # Setting the models
-import tkinter 
+import tkinter
 from tkinter import messagebox
 
 # Setting the screen
@@ -18,12 +18,13 @@ def Send():
     else:
         messagebox.showerror(message="You did not answer the survey!")
 
-#  Making frist and last name to be a string value.
+    #  Making frist and last name to be a string value.
     if first_name_entry.get() and last_name_entry.get():
         first_name_entry.get, last_name_entry.get == str
         messagebox.showinfo(message="Valid First and Last_name:...")
     else:
         messagebox.showerror(message="Invalid name Frist_name and Last_name:....")
+
 
 # Setting the show password
 def show_password():
@@ -37,6 +38,7 @@ def show_password():
     else:
         password_entry.config(show='*')
         hide_button.config(text="Show password")
+
 
 # Setting the title
 Survey_label = tkinter.Label(font=("Roboto", 35), text="Survey", bg="black", fg="white")
@@ -71,8 +73,7 @@ send_button.pack()
 
 window.mainloop()
 # Setting the models
-import tkinter
-from tkinter import messagebox
+
 
 # Setting the screen
 window = tkinter.Tk()
@@ -145,6 +146,15 @@ password_entry.pack(pady=5)
 # creating a button for password visibility
 hide_button = tkinter.Button(window, text="show password", command=show_password)
 hide_button.pack(pady=3)
+
+# Setting gmail Label
+gmail_label = tkinter.Label(window, font=("", 12), text="What is your gmail address", bg="black", fg="white")
+gmail_label.pack(pady=10)
+
+# Setting the gmail entry(Input)
+gmail_entry = tkinter.Entry(window, font=("", 12), bg="gold", fg="black",command='Gmail')
+gmail_entry.pack()
+
 # Setting up the send button
 send_button = tkinter.Button(font=("Bona Nova SC", 12), text="Send", bg="black", fg="white", command=Send)
 send_button.pack()
