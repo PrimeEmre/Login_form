@@ -1,5 +1,5 @@
 # Setting the models
-import tkinter
+import tkinter 
 from tkinter import messagebox
 
 # Setting the screen
@@ -18,19 +18,12 @@ def Send():
     else:
         messagebox.showerror(message="You did not answer the survey!")
 
-    # Password
-    try:
-        user_input = password_entry.get()
-        # Try to convert the input to a number (float or int)
-        float(user_input)
-        # Shows a message
-        messagebox.showinfo(message=":)")
-
-    # If it is not a number which a user puts it will go to show error
-    except ValueError:
-        # If the input is str, show an error message
-        messagebox.showerror(message="You did not write a number for the password!. :(")
-
+#  Making frist and last name to be a string value.
+    if first_name_entry.get() and last_name_entry.get():
+        first_name_entry.get, last_name_entry.get == str
+        messagebox.showinfo(message="Valid First and Last_name:...")
+    else:
+        messagebox.showerror(message="Invalid name Frist_name and Last_name:....")
 
 # Setting the show password
 def show_password():
@@ -44,7 +37,6 @@ def show_password():
     else:
         password_entry.config(show='*')
         hide_button.config(text="Show password")
-
 
 # Setting the title
 Survey_label = tkinter.Label(font=("Roboto", 35), text="Survey", bg="black", fg="white")
