@@ -54,6 +54,14 @@ last_name_label.pack(pady=5)
 last_name_entry = tkinter.Entry(font=("Oxygen", 12), bg="gold", fg="black")
 last_name_entry.pack()
 
+# Setting the gmail label
+gmail_label = tkinter.Label(window, font=("Playwrite England SemiJoined", 12), text="What is your gmail address", bg='black', fg='white')
+gmail_label.pack(pady=10)
+
+# Setting the gmail entry
+gmail_entry = tkinter.Entry(window, font=("Playwrite England SemiJoined", 12), bg="gold", fg="black")
+gmail_entry.pack()
+
 # Setting the label and the entry for the Password
 password_label = tkinter.Label(font=("Playwrite England SemiJoined", 12), text="Password", bg="black", fg="white")
 password_label.pack(pady=5)
@@ -64,14 +72,6 @@ password_entry.pack(pady=5)
 # creating a button for password visibility
 hide_button = tkinter.Button(window, text="show password", command=show_password)
 hide_button.pack(pady=3)
-
-# Setting the gmail label
-gmail_label = tkinter.Label(window, font=("Playwrite England SemiJoined", 12), text="What is your gmail address", bg='black', fg='white')
-gmail_label.pack(pady=10)
-
-# Setting the gmail entry
-gmail_entry = tkinter.Entry(window, font=("Playwrite England SemiJoined", 12), bg="gold", fg="black")
-gmail_entry.pack()
 
 # Setting up the send button
 send_button = tkinter.Button(font=("Bona Nova SC", 12), text="Send", bg="black", fg="white", command=Send)

@@ -110,7 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733923688865</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added gmail entry and label">
+      <option name="closed" value="true" />
+      <created>1733936324307</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733936324307</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -118,6 +126,7 @@
     <MESSAGE value="done the project" />
     <MESSAGE value="added first &amp; lastname and make give them string valus when a usser gives a number to first &amp; last name they will get an erro of First&amp;last name are invalad names." />
     <MESSAGE value="Nothıng changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nothıng changed" />
+    <MESSAGE value="Added gmail entry and label" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added gmail entry and label" />
   </component>
 </project>
