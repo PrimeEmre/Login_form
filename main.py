@@ -65,6 +65,7 @@ gmail_entry.pack()
 # Setting the label and the entry for the Password
 password_label = tkinter.Label(font=("Playwrite England SemiJoined", 12), text="Password", bg="black", fg="white")
 password_label.pack(pady=5)
+
 # created hide password
 password_entry = tkinter.Entry(window, show='*', font=("PT Sans", 12), bg="gold", fg="black")
 password_entry.pack(pady=5)
