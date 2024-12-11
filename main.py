@@ -39,7 +39,6 @@ def show_password():
         password_entry.config(show='*')
         hide_button.config(text="Show password")
 
-
 # Setting the title
 Survey_label = tkinter.Label(font=("Roboto", 35), text="Survey", bg="black", fg="white")
 Survey_label.pack(pady=20)
@@ -118,6 +117,7 @@ def show_password():
         password_entry.config(show='*')
         hide_button.config(text="Show password")
 
+# Setting the gmail
 
 # Setting the title
 Survey_label = tkinter.Label(font=("Roboto", 35), text="Survey", bg="black", fg="white")
@@ -152,7 +152,7 @@ gmail_label = tkinter.Label(window, font=("", 12), text="What is your gmail addr
 gmail_label.pack(pady=10)
 
 # Setting the gmail entry(Input)
-gmail_entry = tkinter.Entry(window, font=("", 12), bg="gold", fg="black",command='Gmail')
+gmail_entry = tkinter.Entry(window, font=("", 12), bg="gold", fg="black")
 gmail_entry.pack()
 
 # Setting up the send button
