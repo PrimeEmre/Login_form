@@ -31,11 +31,11 @@ def show_password():
         password_entry.config(show='')
         # Putting text on hide_button
         hide_button.config(text='Hide Password')
-
     # Now we are doing else statement for showing the password
     else:
         password_entry.config(show='*')
         hide_button.config(text="Show password")
+
 
 # Setting the title
 Survey_label = tkinter.Label(font=("Roboto", 35), text="Survey", bg="black", fg="white")
@@ -64,6 +64,15 @@ password_entry.pack(pady=5)
 # creating a button for password visibility
 hide_button = tkinter.Button(window, text="show password", command=show_password)
 hide_button.pack(pady=3)
+
+# Setting the gmail label
+gmail_label = tkinter.Label(window, font=("Playwrite England SemiJoined", 12), text="What is your gmail address", bg='black', fg='white')
+gmail_label.pack(pady=10)
+
+# Setting the gmail entry
+gmail_entry = tkinter.Entry(window, font=("Playwrite England SemiJoined", 12), bg="gold", fg="black")
+gmail_entry.pack()
+
 # Setting up the send button
 send_button = tkinter.Button(font=("Bona Nova SC", 12), text="Send", bg="black", fg="white", command=Send)
 send_button.pack()
