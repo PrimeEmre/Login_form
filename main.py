@@ -1,11 +1,47 @@
 import tkinter
 from tkinter import messagebox
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
 
 window = tkinter.Tk()
 window.title("Survey")
 window.minsize(width=1000, height=1000)
 window.config(padx=20, pady=20)
 
+
+def send_email(sender_email, sender_password, recipient_email, subject, body):
+    """
+    Sends an email using Gmail's SMTP server.
+
+    Parameters:
+        sender_email (str): The email address of the sender.
+        sender_password (str): The password or App Password for the sender's Gmail account.
+        recipient_email (str): The email address of the recipient.
+        subject (str): The subject of the email.
+        body (str): The body content of the email.
+
+    Returns:
+        str: Success or error message.
+    """
+    try:
+        # Create the email
+        msg = MIMEMultipart()
+        msg["From"] = sender_email
+        msg["To"] = recipient_email
+        msg["Subject"] = subject
+        msg.attach(MIMEText(body, "plain"))
+
+        # Connect to Gmail's SMTP server
+        with smtplib.SMTP("smtp.gmail.com", 587) as server:
+            server.starttls()  # Upgrade the connection to secure
+            server.login(sender_email, sender_password)
+            server.sendmail(sender_email, recipient_email, msg.as_string())
+
+        return "Email sent successfully!"
+    except Exception as e:
+        return f"Error: {e}"
 
 # Setting the function for the send button
 def Send():
@@ -17,11 +53,18 @@ def Send():
         messagebox.showerror(message="You did not answer the survey!")
 
     #  Making frist and last name to be a string value.
-    if first_name_entry.get() and last_name_entry.get():
-        first_name_entry.get, last_name_entry.get == str
+    if first_name_entry.get().isalpha() and last_name_entry.get().isalpha():
         messagebox.showinfo(message="Valid First and Last_name:...")
     else:
         messagebox.showerror(message="Invalid name Frist_name and Last_name:....")
+    sender = "mahmutsemsettin2024@gmail.com"
+    password = "pbch xpcg jpls aejk"
+    recipient = gmail_entry.get()
+    subject = "Test Email"
+    body = "This is a test email sent from Python."
+
+    result = send_email(sender, password, recipient, subject, body)
+    print(result)
 
 
 # Setting the show password
@@ -36,6 +79,8 @@ def show_password():
         password_entry.config(show='*')
         hide_button.config(text="Show password")
 
+def Reset():
+    pass
 
 # Setting the title
 Survey_label = tkinter.Label(font=("Roboto", 35), text="Survey", bg="black", fg="white")
@@ -77,5 +122,9 @@ hide_button.pack(pady=3)
 # Setting up the send button
 send_button = tkinter.Button(font=("Bona Nova SC", 12), text="Send", bg="black", fg="white", command=Send)
 send_button.pack()
+
+# Making a rest button that way it can reset the survey
+rest_button = tkinter.Button(font=("Bona Nova SC", 12), text="Rest Survey", bg='black',fg="white",command=Reset)
+rest_button.pack(pady=10)
 
 window.mainloop()
