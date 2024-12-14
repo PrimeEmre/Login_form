@@ -3,13 +3,30 @@ from tkinter import messagebox
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-
+import configparser
 
 window = tkinter.Tk()
 window.title("Survey")
 window.minsize(width=1000, height=1000)
 window.config(padx=20, pady=20)
 
+
+def read_config(file_path):
+    """
+    Reads the configuration file for email credentials.
+
+    Parameters:
+        file_path (str): Path to the configuration file.
+
+    Returns:
+        dict: A dictionary containing sender_email and app_password.
+    """
+    config = configparser.ConfigParser()
+    config.read(file_path)
+    return {
+        "sender_email": config.get("Email", "sender_email"),
+        "app_password": config.get("Email", "app_password")
+    }
 
 def send_email(sender_email, sender_password, recipient_email, subject, body):
     """
@@ -57,8 +74,12 @@ def Send():
         messagebox.showinfo(message="Valid First and Last_name:...")
     else:
         messagebox.showerror(message="Invalid name Frist_name and Last_name:....")
-    sender = "mahmutsemsettin2024@gmail.com"
-    password = "pbch xpcg jpls aejk"
+    # Read configuration
+    config = read_config("config.ini")
+    sender = config["sender_email"]
+    password = config["app_password"]
+    sender = sender
+    password = password
     recipient = gmail_entry.get()
     subject = "Test Email"
     body = "This is a test email sent from Python."
