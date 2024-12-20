@@ -113,6 +113,8 @@ def Reset():
     password_entry.delete(0, 'end')
     # Clear all text in the Gmail field
     gmail_entry.delete(0, 'end')
+def save_password():
+    pass
 
 
 # Setting the title
@@ -157,8 +159,12 @@ hide_button.pack(pady=3)
 send_button = tkinter.Button(font=("Bona Nova SC", 12), text="Send", bg="black", fg="white", command=Send)
 send_button.pack()
 
+save_password = tkinter.IntVar(value=1)
+save_password = tkinter.Radiobutton(font=('Roboto', 12), text="Save password ",variable=save_password, value=1, command=save_password)
+save_password.pack()
+
 # Making a rest button that way it can reset the survey
-rest_button = tkinter.Button(font=("Bona Nova SC", 12), text="Rest Survey", bg='black', fg="white", command=Reset)
+rest_button = tkinter.Button(font=("Bona Nova SC", 12), text="Rest Login", bg='black', fg="white", command=Reset)
 rest_button.pack(pady=10)
 
 window.mainloop()
