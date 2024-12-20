@@ -6,7 +6,7 @@ from email.mime.multipart import MIMEMultipart
 import configparser
 
 window = tkinter.Tk()
-window.title("Survey")
+window.title("Login")
 window.minsize(width=1000, height=1000)
 window.config(padx=20, pady=20)
 
@@ -27,6 +27,7 @@ def read_config(file_path):
         "sender_email": config.get("Email", "sender_email"),
         "app_password": config.get("Email", "app_password")
     }
+
 
 def send_email(sender_email, sender_password, recipient_email, subject, body):
     """
@@ -60,6 +61,7 @@ def send_email(sender_email, sender_password, recipient_email, subject, body):
     except Exception as e:
         return f"Error: {e}"
 
+
 # Setting the function for the send button
 def Send():
     # Setting the if and else statements to answer the iniquitous and giving an error when someone deos not answer
@@ -82,7 +84,7 @@ def Send():
     password = password
     recipient = gmail_entry.get()
     subject = "Test Email"
-    body = "This is a test email sent from Python."
+    body = "i love u -emre."
 
     result = send_email(sender, password, recipient, subject, body)
     print(result)
@@ -100,12 +102,22 @@ def show_password():
         password_entry.config(show='*')
         hide_button.config(text="Show password")
 
+
+# Setting_Button
 def Reset():
-    pass
+    # Clear all text in the first entry field
+    first_name_entry.delete(0, 'end')
+    # Clear all text in the second entry field
+    last_name_entry.delete(0, 'end')
+    # Clear all text in the password field
+    password_entry.delete(0, 'end')
+    # Clear all text in the Gmail field
+    gmail_entry.delete(0, 'end')
+
 
 # Setting the title
-Survey_label = tkinter.Label(font=("Roboto", 35), text="Survey", bg="black", fg="white")
-Survey_label.pack(pady=20)
+login_label = tkinter.Label(font=("Roboto", 35), text="Login", bg="black", fg="white")
+login_label.pack(pady=20)
 
 # Setting the label for the first name and the entry for the first name.
 first_name_label = tkinter.Label(font=("Playfair Display", 12), text="First name", bg="black", fg="white")
@@ -121,7 +133,8 @@ last_name_entry = tkinter.Entry(font=("Oxygen", 12), bg="gold", fg="black")
 last_name_entry.pack()
 
 # Setting the gmail label
-gmail_label = tkinter.Label(window, font=("Playwrite England SemiJoined", 12), text="What is your gmail address", bg='black', fg='white')
+gmail_label = tkinter.Label(window, font=("Playwrite England SemiJoined", 12), text="What is your gmail address",
+                            bg='black', fg='white')
 gmail_label.pack(pady=10)
 
 # Setting the gmail entry
@@ -145,7 +158,7 @@ send_button = tkinter.Button(font=("Bona Nova SC", 12), text="Send", bg="black",
 send_button.pack()
 
 # Making a rest button that way it can reset the survey
-rest_button = tkinter.Button(font=("Bona Nova SC", 12), text="Rest Survey", bg='black',fg="white",command=Reset)
+rest_button = tkinter.Button(font=("Bona Nova SC", 12), text="Rest Survey", bg='black', fg="white", command=Reset)
 rest_button.pack(pady=10)
 
 window.mainloop()
